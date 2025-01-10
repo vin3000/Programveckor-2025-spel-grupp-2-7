@@ -1,16 +1,56 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    private float reloadTime;
+
+    [SerializeField]
+    private Arrow arrowPrefab;
+
+    [SerializeField]
+    private Transform arrowSpawnPoint;
+
+    private Arrow currentArrow;
+
+    private bool isReloading;
+
+    public void Reload()
     {
-        
+        //Ladda om pilbågen
+        if (isReloading || currentArrow != null) return;
+        isReloading = true;
+        StartCoroutine(ReloadAfterTime());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator ReloadAfterTime()
     {
-        
+        yield return new WaitForSeconds(reloadTime);
+        currentArrow = Instantiate(arrowPrefab, arrowSpawnPoint);
+        currentArrow.transform.localPosition = Vector3.zero; //fixa så att pilen inte spawnar ovanför huvudet på spelaren.
+        isReloading = false;
+    }
+
+    public void Fire(float firePower)
+    {
+        //Skjut en pil
+        if (isReloading || currentArrow == null) return;
+        var force = arrowSpawnPoint.TransformDirection(Vector3.back * firePower);
+        currentArrow.Fly(force);
+        currentArrow = null;
+        Reload();
+    }
+
+    public bool isReady()
+    {
+        return (!isReloading && currentArrow != null);
+    }
+
+    private void FixedUpdate()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+        }
     }
 }
