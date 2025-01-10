@@ -33,7 +33,10 @@ public class Sword : MonoBehaviour
 
     private void OnTriggerEnter(Collider hit)
     {
-        Destroy(hit.gameObject);
+        if(hit.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy))
+        {
+            enemy.Damage(200);
+        }
     }
 
     private void Update()

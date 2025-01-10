@@ -2,15 +2,38 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private float damage;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private float torque;
+
+    [SerializeField]
+    private Rigidbody rigidbody;
+
+    private bool didHit;
+
+
+    public void Fly(Vector3 force)
     {
-        
+        rigidbody.isKinematic = false;
+        rigidbody.AddForce(force, ForceMode.Impulse);
+        rigidbody.AddTorque(transform.right * torque);
+        transform.SetParent(null);
+    }
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (didHit) return;
+        didHit = true;
+
+        if (collider.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy))
+        {
+            enemy.Damage(200);
+        }
+
+        rigidbody.linearVelocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
+        rigidbody.isKinematic = true;
+        transform.SetParent(collider.transform);
     }
 }
