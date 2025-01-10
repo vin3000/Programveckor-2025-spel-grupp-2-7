@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Arrow : MonoBehaviour
+public class CArrow : MonoBehaviour
 {
     float life;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
