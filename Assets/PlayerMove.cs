@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     public LayerMask groundMask;
 
     Vector3 velocity;
+    public Vector3 damageVelocity;
     bool isGrounded;
 
     // Update is called once per frame
@@ -43,9 +44,21 @@ public class PlayerMove : MonoBehaviour
             //physics equation to get how high we jump
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+        if (damageVelocity.magnitude > 0)
+        {
+            
+            damageVelocity *= 0.91f;
+            if (damageVelocity.magnitude < 0.01f)
+            {
+                damageVelocity = Vector3.zero;
+            }
+            
+        }
+        
+       
 
         velocity.y += gravity * Time.deltaTime;
 
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move((velocity+damageVelocity) * Time.deltaTime);
     }
 }
