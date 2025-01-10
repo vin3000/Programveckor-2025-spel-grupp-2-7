@@ -3,11 +3,11 @@ using UnityEngine;
 public class CrumbleFloor : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    float breakTimer=1;
-    bool breakFloor=false;
+    float breakTimer = 1;
+    bool breakFloor = false;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,12 +23,20 @@ public class CrumbleFloor : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.layer != 3)
         {
-            breakTimer = 1;
-            breakFloor = true;
+            
+            if (other.gameObject.layer != 3)
+            {
+                
+                breakTimer = 1;
+                breakFloor = true;
+                
+            }
         }
     }
 }
+
+    
+
