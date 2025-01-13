@@ -35,11 +35,14 @@ public class BowArrow : MonoBehaviour
             if (collider.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy))
             {
                 enemy.Damage(damage);
+                print(damage);
             }
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.isKinematic = true;
             transform.SetParent(collider.transform);
+            print("hit");
+            
         }
         else return;
 

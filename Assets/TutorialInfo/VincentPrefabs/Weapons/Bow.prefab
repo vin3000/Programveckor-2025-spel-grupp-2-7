@@ -488,4 +488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd2979347f35d445b5c5e626ebc8f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 1848272389140215520, guid: 637493376023bad4a96132f8f7381387, type: 3}
+  reloadTime: 0
+  arrowPrefab: {fileID: 0}
+  arrowSpawnPoint: {fileID: 0}
