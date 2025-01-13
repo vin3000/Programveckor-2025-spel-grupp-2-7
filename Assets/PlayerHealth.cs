@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public int maxHealth;
     public float invincibilityTime;
+    
     void Start()
     {
         health = maxHealth;
@@ -20,4 +21,5 @@ public class PlayerHealth : MonoBehaviour
         }
         invincibilityTime -= Time.deltaTime;
     }
+    
 }
