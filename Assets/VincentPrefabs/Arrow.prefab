@@ -647,7 +647,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 16
+  m_Constraints: 112
   m_CollisionDetection: 3
 --- !u!65 &1310918553105922380
 BoxCollider:
