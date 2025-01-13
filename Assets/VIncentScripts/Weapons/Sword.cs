@@ -4,14 +4,14 @@ using UnityEngine;
 public class Sword : MonoBehaviour
 {
     //Variables
-    private BoxCollider collider;
+    private BoxCollider swordCollider;
     private float hitBoxDuration = 1f;
     private bool isAttacking = false;
 
     void Start()
     {
-        collider = this.GetComponent<BoxCollider>();
-        collider.enabled = false;
+        swordCollider = this.GetComponent<BoxCollider>();
+        swordCollider.enabled = false;
     }
 
     public IEnumerator Attack()
@@ -19,10 +19,10 @@ public class Sword : MonoBehaviour
         //Svinga svärdet och gör så att allt det träffar tar skada (just nu förstör det då vi inte har ett health system).
         if(!isAttacking)
         {
-            collider.enabled = true;
+            swordCollider.enabled = true;
             isAttacking = true;
             yield return new WaitForSeconds(hitBoxDuration);
-            collider.enabled = false;
+            swordCollider.enabled = false;
             isAttacking = false;
         }
         else
