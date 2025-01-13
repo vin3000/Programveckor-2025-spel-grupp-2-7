@@ -5,9 +5,18 @@ public class PlayerMove : MonoBehaviour
 
     public CharacterController controller;
 
+    //basic movement variables
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
+
+    //crouching variables
+    public float crouchSpeed;
+    public float standingHeight;
+    public float crouchHeight;
+    public Vector3 offset;
+    public Transform player;
+    public bool crouching;
 
     //variabler som håller koll på om vi är på marken 
     public Transform groundCheck;
@@ -60,5 +69,35 @@ public class PlayerMove : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move((velocity+damageVelocity) * Time.deltaTime);
+
+        /*if (Input.GetKey(KeyCode.LeftControl))
+        {
+            crouching = true;
+        }
+        else
+        {
+            crouching = false;
+        }
+
+        if (crouching == true)
+        {
+            controller.height = controller.height - crouchSpeed * Time.deltaTime;
+            if (controller.height <= standingHeight)
+            {
+                controller.height = crouchHeight;
+            }
+        }
+        if (crouching == false)
+        {
+            controller.height = controller.height + crouchSpeed * Time.deltaTime;
+               if (controller.height < standingHeight)
+               {
+                   player.position = player.position + offset * Time.deltaTime;
+               }
+            if (controller.height >= standingHeight)
+            {
+                controller.height = standingHeight;
+            }
+        }*/
     }
 }

@@ -28,12 +28,28 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     SetNewCurrentInteractable(newInteractable);
                 }
+                else//if new interactable is not enabled
+                {
+                    DisableCurrentInteractable();
+                }
             }
+            else//if tag doesnt match
+            {
+                DisableCurrentInteractable();
+            }
+        }
+        else//if no item in reach
+        {
+            DisableCurrentInteractable();
         }
     }
 
     void SetNewCurrentInteractable(Interactable newInteractable)
     {
         currentInteractable = newInteractable;
+    }
+    void DisableCurrentInteractable()
+    {
+        currentInteractable = null;
     }
 }
