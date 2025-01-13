@@ -35,7 +35,7 @@ public class Sword : MonoBehaviour
     {
         if(hit.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy))
         {
-            enemy.Damage(200);
+            enemy.Damage(25);
         }
     }
 
