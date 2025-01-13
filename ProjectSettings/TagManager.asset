@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Interactable
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Falltrap
@@ -17,7 +18,7 @@ TagManager:
   - 
   - 
   - Arrows
-  - Player
+  - DamagePlayer
   - 
   - 
   - 
