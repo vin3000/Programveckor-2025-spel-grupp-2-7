@@ -34,7 +34,7 @@ public class BowArrow : MonoBehaviour
 
             if (collider.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy))
             {
-                enemy.Damage(200);
+                enemy.Damage(damage);
             }
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
