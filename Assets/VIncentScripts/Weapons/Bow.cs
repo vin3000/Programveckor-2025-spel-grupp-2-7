@@ -7,12 +7,12 @@ public class Bow : MonoBehaviour
     private float reloadTime;
 
     [SerializeField]
-    private Arrow arrowPrefab;
+    private BowArrow arrowPrefab;
 
     [SerializeField]
     private Transform arrowSpawnPoint;
 
-    private Arrow currentArrow;
+    private BowArrow currentArrow;
 
     private bool isReloading;
 
@@ -28,7 +28,7 @@ public class Bow : MonoBehaviour
     {
         yield return new WaitForSeconds(reloadTime);
         currentArrow = Instantiate(arrowPrefab, arrowSpawnPoint);
-        currentArrow.transform.localPosition = Vector3.zero; //fixa så att pilen inte spawnar ovanför huvudet på spelaren.
+        currentArrow.transform.localPosition = Vector3.zero;
         isReloading = false;
     }
 
