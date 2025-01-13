@@ -9,6 +9,9 @@ public class BowController : MonoBehaviour
     private float maxFirePower;
 
     [SerializeField]
+    private float minFirePower;
+
+    [SerializeField]
     private float firePowerSpeed;
 
     private float firePower;
@@ -35,6 +38,7 @@ public class BowController : MonoBehaviour
 
        if(fire && Input.GetMouseButtonUp(0))
         {
+            firePower = Mathf.Clamp(firePower, minFirePower, maxFirePower);
             bow.Fire(firePower);
             firePower = 0;
             fire = false;
