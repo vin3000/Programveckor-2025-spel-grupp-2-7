@@ -17,6 +17,8 @@ public class BowArrow : MonoBehaviour
 
     private bool didHit;
 
+    [SerializeField]
+    private BoxCollider bodyCollider;
 
     public void Fly(Vector3 force)
     {
@@ -39,6 +41,7 @@ public class BowArrow : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.isKinematic = true;
+            bodyCollider.enabled = false;
             transform.SetParent(collider.transform);
         }
         else return;
