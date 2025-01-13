@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class LookAtPlayer : MonoBehaviour
@@ -21,7 +22,13 @@ public class LookAtPlayer : MonoBehaviour
         lookRotation = (lookPosition - transform.position).normalized;
         
         transform.rotation = Quaternion.LookRotation(lookRotation);
-        transform.parent.transform.eulerAngles = new Vector3(90,transform.eulerAngles.y,transform.eulerAngles.z);
+
+        if (transform.parent != null)
+        {
+            transform.parent.transform.eulerAngles = new Vector3(90, transform.eulerAngles.y, transform.eulerAngles.z);
+        }
+        
+            
         
     }
 }
