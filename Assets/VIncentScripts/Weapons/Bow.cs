@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -44,6 +45,7 @@ public class Bow : MonoBehaviour, IItem
 
     public void Fire(float firePower)
     {
+        
         if (!pickedUp) return;
         //Skjut en pil
         if (isReloading || currentArrow == null) return;
