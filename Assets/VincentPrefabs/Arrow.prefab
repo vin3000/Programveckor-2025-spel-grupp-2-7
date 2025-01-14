@@ -670,6 +670,7 @@ MonoBehaviour:
   torque: 5
   rb: {fileID: 1884486491507605106}
   bodyCollider: {fileID: 733510189246062917}
+  tipCollider: {fileID: 1310918553105922380}
 --- !u!1 &6741422482299243370
 GameObject:
   m_ObjectHideFlags: 0
