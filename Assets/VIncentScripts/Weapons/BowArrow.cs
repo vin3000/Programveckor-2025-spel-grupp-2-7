@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class BowArrow : MonoBehaviour
@@ -20,6 +21,9 @@ public class BowArrow : MonoBehaviour
     [SerializeField]
     private BoxCollider bodyCollider;
 
+    [SerializeField]
+    private BoxCollider tipCollider;
+
     public void Fly(Vector3 force)
     {
         rb.isKinematic = false;
@@ -29,7 +33,7 @@ public class BowArrow : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-        if(fired)
+        if (fired)
         {
             if (didHit) return;
             didHit = true;
@@ -37,25 +41,35 @@ public class BowArrow : MonoBehaviour
             if (collider.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy))
             {
                 enemy.Damage(damage);
-                
+
             }
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.isKinematic = true;
-            bodyCollider.enabled = false;
-            transform.SetParent(collider.transform);
-            
-            
+            StopArrow(collider);
+
+
+
         }
         else return;
 
     }
 
+    private void StopArrow(Collider objectHit)
+    {
+        //Får pilen att stanna och fastna i det den träffar
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
+        bodyCollider.enabled = false;
+        tipCollider.enabled = false;
+        StartCoroutine(StartDestroyCountdown());
+    }
+
+    IEnumerator StartDestroyCountdown()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(this.gameObject);
+    }
+
     private void Update()
     {
-        if(this.transform.parent == null)
-        {
-            fired = true;
-        }
     }
 }

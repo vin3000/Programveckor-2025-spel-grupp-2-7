@@ -22,7 +22,7 @@ public class Bow : MonoBehaviour, IItem
     public void Reload()
     {
         //Ladda om pilbågen
-        if (isReloading || currentArrow != null) return;
+        if (pickedUp == false || isReloading || currentArrow != null) return;
         isReloading = true;
         StartCoroutine(ReloadAfterTime());
     }
@@ -30,6 +30,7 @@ public class Bow : MonoBehaviour, IItem
     public void PickUp()
     {
         pickedUp = true;
+        Reload();
         this.transform.SetParent(Camera.main.transform);
         this.transform.localPosition = new Vector3(1.12f, -1.20000005f, -0.0700000003f);
         this.transform.localRotation = new Quaternion(1.46460854e-06f, -1, 1.50674259e-06f, 5.85615544e-06f);
@@ -51,6 +52,7 @@ public class Bow : MonoBehaviour, IItem
         if (isReloading || currentArrow == null) return;
         //var force = arrowSpawnPoint.TransformDirection(Vector3.back * firePower);
         var force = (Camera.main.transform.forward * firePower);
+        currentArrow.fired = true;
         currentArrow.Fly(force);
         currentArrow = null;
         Reload();
@@ -59,12 +61,5 @@ public class Bow : MonoBehaviour, IItem
     public bool isReady()
     {
         return (!isReloading && currentArrow != null);
-    }
-
-    private void FixedUpdate()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-        }
     }
 }
