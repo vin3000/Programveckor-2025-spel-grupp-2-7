@@ -11,9 +11,9 @@ public class PlayerMove : MonoBehaviour
     public float jumpHeight = 3f;
 
     //crouching variables
-    public float crouchSpeed;
-    public float standingHeight;
-    public float crouchHeight;
+    public float crouchSpeed=3f;
+    public float standingHeight=2f;
+    public float crouchHeight=1f;
     public Vector3 offset;
     public Transform player;
     public bool crouching;
@@ -77,9 +77,14 @@ public class PlayerMove : MonoBehaviour
         else
         {
             crouching = false;
+        }*/
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            crouching = !crouching;
         }
 
-        if (crouching == true)
+        if (crouching == false)
         {
             controller.height = controller.height - crouchSpeed * Time.deltaTime;
             if (controller.height <= standingHeight)
@@ -87,7 +92,7 @@ public class PlayerMove : MonoBehaviour
                 controller.height = crouchHeight;
             }
         }
-        if (crouching == false)
+        if (crouching == true)
         {
             controller.height = controller.height + crouchSpeed * Time.deltaTime;
                if (controller.height < standingHeight)
@@ -98,6 +103,6 @@ public class PlayerMove : MonoBehaviour
             {
                 controller.height = standingHeight;
             }
-        }*/
+        }
     }
 }
