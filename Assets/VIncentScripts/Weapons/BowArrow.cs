@@ -43,30 +43,13 @@ public class BowArrow : MonoBehaviour
                 enemy.Damage(damage);
 
             }
-            StopArrow(collider);
+            Destroy(this.gameObject);
 
 
 
         }
         else return;
 
-    }
-
-    private void StopArrow(Collider objectHit)
-    {
-        //Får pilen att stanna och fastna i det den träffar
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        rb.isKinematic = true;
-        bodyCollider.enabled = false;
-        tipCollider.enabled = false;
-        StartCoroutine(StartDestroyCountdown());
-    }
-
-    IEnumerator StartDestroyCountdown()
-    {
-        yield return new WaitForSeconds(10f);
-        Destroy(this.gameObject);
     }
 
     private void Update()

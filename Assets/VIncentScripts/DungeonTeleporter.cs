@@ -16,7 +16,7 @@ public class DungeonTeleporter : MonoBehaviour
     public string m_Scene;
 
     // Assign your GameObject you want to move Scene in the Inspector
-    public GameObject m_MyGameObject;
+    public GameObject playerObject;
 
     void Update()
     {
@@ -36,15 +36,14 @@ public class DungeonTeleporter : MonoBehaviour
             yield return null;
         }
         // Move the GameObject (you attach this in the Inspector) to the newly loaded Scene
-        //SceneManager.MoveGameObjectToScene(m_MyGameObject, SceneManager.GetSceneByName(m_Scene)); //lägg tillbaks senare
+        SceneManager.MoveGameObjectToScene(playerObject, SceneManager.GetSceneByName(m_Scene)); //lägg tillbaks senare
         // Unload the previous Scene
         SceneManager.UnloadSceneAsync(currentScene);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-            Debug.Log("testtt");
-        if(other.transform.gameObject.name == "Player")
+        if(other.gameObject == playerObject)
         {
             StartCoroutine(LoadYourAsyncScene());
         }
