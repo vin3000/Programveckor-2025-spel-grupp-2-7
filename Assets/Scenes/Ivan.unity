@@ -2354,6 +2354,7 @@ GameObject:
   - component: {fileID: 1428250454}
   - component: {fileID: 1428250458}
   - component: {fileID: 1428250459}
+  - component: {fileID: 1428250460}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -2473,8 +2474,10 @@ MonoBehaviour:
   gravity: -20
   jumpHeight: 3
   crouchSpeed: 0
+  standSpeed: 3
   standingHeight: 0
   crouchHeight: 0
+  smoothTime: 0.25
   offset: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   crouching: 0
@@ -2497,6 +2500,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerReach: 3
+--- !u!114 &1428250460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428250453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e814e76bec541604f8a59b4145b3f6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 20
+  invincibilityTime: 0
 --- !u!1 &1584445304
 GameObject:
   m_ObjectHideFlags: 0
