@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    public LayerMask spiderMask;
 
     Vector3 velocity;
     public Vector3 damageVelocity;
@@ -31,7 +32,8 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         //skapar en sphere som kan kolla om vi rör marken
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) && !Physics.CheckSphere(groundCheck.position, groundDistance, spiderMask,QueryTriggerInteraction.Collide) ;
+
 
         if (isGrounded && velocity.y < 0)
         {
