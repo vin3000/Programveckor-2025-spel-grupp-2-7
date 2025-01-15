@@ -11,9 +11,11 @@ public class PlayerMove : MonoBehaviour
     public float jumpHeight = 3f;
 
     //crouching variables
-    public float crouchSpeed=3f;
-    public float standingHeight=2f;
-    public float crouchHeight=1f;
+    public float crouchSpeed=2f;
+    public float standSpeed = 3f;
+    public float standingHeight=1f;
+    public float crouchHeight=0.5f;
+    public float smoothTime=0.25f;
     public Vector3 offset;
     public Transform player;
     public bool crouching;
@@ -22,6 +24,7 @@ public class PlayerMove : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    public LayerMask spiderMask;
 
     Vector3 velocity;
     public Vector3 damageVelocity;
@@ -31,7 +34,8 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         //skapar en sphere som kan kolla om vi rör marken
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) && !Physics.CheckSphere(groundCheck.position, groundDistance, spiderMask,QueryTriggerInteraction.Collide) ;
+
 
         if (isGrounded && velocity.y < 0)
         {
@@ -70,19 +74,19 @@ public class PlayerMove : MonoBehaviour
 
         controller.Move((velocity+damageVelocity) * Time.deltaTime);
 
-        /*if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             crouching = true;
         }
         else
         {
             crouching = false;
-        }*/
+        }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        /*if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             crouching = !crouching;
-        }
+        }*/
 
         if (crouching == false)
         {
