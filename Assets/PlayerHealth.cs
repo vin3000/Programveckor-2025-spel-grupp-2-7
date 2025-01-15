@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && potionEquiped == true)
         {
+
             if (nrOfPotions <= 0) return;
             health += 5;
             nrOfPotions -= 1;
