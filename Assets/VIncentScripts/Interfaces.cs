@@ -5,9 +5,10 @@ public class Interfaces
     
 }
 
-public interface IInteractable
+public interface IItem
 {
-    void Interact();
+    public bool pickedUp { get; set; }
+    void PickUp();
 }
 
 public interface IDamageable
