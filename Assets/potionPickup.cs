@@ -13,4 +13,8 @@ public class potionPickup : MonoBehaviour, IItem
         playerHealth.nrOfPotions += 1;
         playerHealth.potionEquiped = true;
     }
+    public void Drop()
+    {
+
+    }
 }
