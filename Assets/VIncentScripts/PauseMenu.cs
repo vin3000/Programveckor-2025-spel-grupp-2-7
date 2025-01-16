@@ -15,7 +15,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject confirmationPrompt;
 
-    // Update is called once per frame
+
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -83,7 +84,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        SceneManager.LoadSceneAsync("MainMenu");
+        confirmationPrompt.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void CloseConfirmationPrompt()
@@ -94,10 +96,5 @@ public class PauseMenu : MonoBehaviour
             if (button.gameObject == confirmationPrompt) continue;
             button.gameObject.SetActive(true);
         }
-    }
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
     }
 }
