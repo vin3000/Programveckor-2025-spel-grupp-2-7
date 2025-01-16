@@ -11,6 +11,4 @@ public class gameOverScript : MonoBehaviour
         gameObject.SetActive(true);
 
     }
-
-    public void
 }

@@ -62,7 +62,7 @@ public class PlayerMove : MonoBehaviour
         {
             crouching = false;
             transform.localScale = new Vector3(transform.localScale.x, standYScale, transform.localScale.z);
-            speed = 12;
+            speed = standSpeed;
         }
 
 
