@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
             nrOfPotions -= 1;
 
         }
-        if (health <= 0)
+        if (health <= 0 && gameOverScript.gameHasEnded == false)
         {
             gameOverScript.Setup();
         }
