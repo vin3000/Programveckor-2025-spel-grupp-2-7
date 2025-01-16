@@ -9,11 +9,6 @@ public class PlayerVincent : MonoBehaviour
 
     List<IItem> items;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
     private void Start()
     {
         items = new List<IItem>();

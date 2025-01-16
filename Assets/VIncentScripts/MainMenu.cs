@@ -13,7 +13,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject ingameSettingsUI;
 
-    private bool paused = false;
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync("MainScene");
@@ -44,10 +43,5 @@ public class MainMenu : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu");
-    }
-
-    private void Awake()
-    {
-        //DontDestroyOnLoad(this.gameObject);
     }
 }
