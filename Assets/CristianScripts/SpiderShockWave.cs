@@ -13,9 +13,6 @@ public class SpiderShockWave : MonoBehaviour
     void Update()
     {
         transform.localScale += new Vector3(Time.deltaTime*15, 0,Time.deltaTime*15);
-        if (transform.localScale.x>45)
-        {
-            Destroy(gameObject);
-        }
+        
     }
 }

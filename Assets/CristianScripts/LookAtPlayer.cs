@@ -7,11 +7,11 @@ public class LookAtPlayer : MonoBehaviour
     
     Vector3 lookRotation;
     Vector3 lookPosition;
-    public Transform Player;
+    Transform Player;
     
     void Start()
     {
-        
+        Player = FindAnyObjectByType<PlayerMove>().GetComponent<Transform>();
     }
 
     // Update is called once per frame

@@ -11,14 +11,20 @@ public class PlayerMove : MonoBehaviour
     public float jumpHeight = 3f;
 
     //crouching variables
-    public float crouchSpeed=2f;
-    public float standSpeed = 3f;
+    public float crouchSpeed = 6f;
+    public float crouchYScale;
+    public float standYScale;
+    public float standSpeed = 12f;
+    public float smoothTime=3f;
+
+    /*public float standSpeed = 3f;
     public float standingHeight=1f;
     public float crouchHeight=0.5f;
-    public float smoothTime=0.25f;
+    
     public Vector3 offset;
-    public Transform player;
+    public Transform player;*/
     public bool crouching;
+    public bool canStand;
 
     //variabler som håller koll på om vi är på marken 
     public Transform groundCheck;
@@ -30,11 +36,54 @@ public class PlayerMove : MonoBehaviour
     public Vector3 damageVelocity;
     bool isGrounded;
 
+
+    private void Start()
+    {
+        standYScale = transform.localScale.y;
+        canStand = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawLine(transform.position, transform.up, Color.blue);
+        new Ray(transform.position, transform.up);
+        RaycastHit hit;
+   
+        if(Physics.Raycast(transform.position, transform.up, out hit, 4))
+        {
+            canStand = false;
+        }
+        else
+        {
+            canStand = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl)&&isGrounded)
+        {
+            crouching = true;
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            speed = crouchSpeed;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl)&&isGrounded && canStand)
+        {
+            crouching = false;
+            transform.localScale = new Vector3(transform.localScale.x, standYScale, transform.localScale.z);
+            speed = 12;
+        }
+
+
+
+       /* if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out RaycastHit hit, 2f))
+        {
+            canStand=false;
+        }*/
+
+
+
         //skapar en sphere som kan kolla om vi rör marken
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) && !Physics.CheckSphere(groundCheck.position, groundDistance, spiderMask,QueryTriggerInteraction.Collide) ;
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask,QueryTriggerInteraction.Ignore) && !Physics.CheckSphere(groundCheck.position, groundDistance, spiderMask,QueryTriggerInteraction.Collide) ;
 
 
         if (isGrounded && velocity.y < 0)
@@ -52,7 +101,7 @@ public class PlayerMove : MonoBehaviour
 
         controller.Move(move*speed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && !crouching)
         {
             //physics equation to get how high we jump
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -74,7 +123,7 @@ public class PlayerMove : MonoBehaviour
 
         controller.Move((velocity+damageVelocity) * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        /*if (Input.GetKey(KeyCode.LeftControl))
         {
             crouching = true;
         }
@@ -83,10 +132,10 @@ public class PlayerMove : MonoBehaviour
             crouching = false;
         }
 
-        /*if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             crouching = !crouching;
-        }*/
+        }
 
         if (crouching == false)
         {
@@ -107,6 +156,7 @@ public class PlayerMove : MonoBehaviour
             {
                 controller.height = standingHeight;
             }
-        }
+        }*/
+
     }
 }
