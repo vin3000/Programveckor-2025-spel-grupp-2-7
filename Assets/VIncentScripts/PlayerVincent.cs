@@ -7,6 +7,8 @@ public class PlayerVincent : MonoBehaviour
     [SerializeField]
     private float interactRange;
 
+    [SerializeField]
+    private GameObject settingsUI;
 
     List<IItem> items;
 
@@ -57,6 +59,11 @@ public class PlayerVincent : MonoBehaviour
                 break;
                 //fix this
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            settingsUI.SetActive(true);
         }
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
