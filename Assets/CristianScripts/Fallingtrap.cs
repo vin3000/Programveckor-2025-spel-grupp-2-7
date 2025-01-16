@@ -38,7 +38,7 @@ public class Fallingtrap : MonoBehaviour
     void Fall()
     { 
         rb.isKinematic = false;
-        rb.AddForce(Vector3.down * 200, ForceMode.Impulse);
+        rb.AddForce(Vector3.down * 1000, ForceMode.Impulse);
         fallTimer = 3;
     }
 }

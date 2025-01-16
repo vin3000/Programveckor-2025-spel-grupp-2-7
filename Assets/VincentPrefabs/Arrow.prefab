@@ -666,6 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f93a8cfaed3bfd4e9d4108ecabf3f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodEffect: {fileID: 7837499641162018183, guid: 570a4caa86ff34e4fa69afe40b14933a, type: 3}
   damage: 100
   torque: 5
   rb: {fileID: 1884486491507605106}

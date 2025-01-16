@@ -34,8 +34,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -28.924768, y: 3.64, z: -2.0893912}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8544813864940385850}
   - {fileID: 4833219899238912654}
@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae66e39120b167e48bb74bfe2e60b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
 --- !u!114 &1664383258011875469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b95570b7ae93e458fbc5ea6f960b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 100
 --- !u!114 &1857946231413899360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,9 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6642de92dd9039439cc82bdeb7a5296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 3
   Directional: 1
-  Force: 20
+  Force: 400
   destroyOnHit: 0
 --- !u!1 &4470261124233182001
 GameObject:
