@@ -9,7 +9,8 @@ public class PlayerHealth : MonoBehaviour
 
     public bool potionEquiped;
     public int nrOfPotions;
-    
+
+    public gameOverScript gameOverScript;
     void Start()
     {
         health = maxHealth;
@@ -34,7 +35,10 @@ public class PlayerHealth : MonoBehaviour
             nrOfPotions -= 1;
 
         }
-        
+        if (health <= 0 && gameOverScript.gameHasEnded == false)
+        {
+            gameOverScript.Setup();
+        }
     }
 
     
