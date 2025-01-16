@@ -1,17 +1,21 @@
 using System.Collections;
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Sword : MonoBehaviour,IItem
 {
     //Variables
+    public bool pickedUp { get; set; }
     private BoxCollider swordCollider;
     private float hitBoxDuration = 1f;
     private bool isAttacking = false;
+    Animation swordAnimation;
+    public GameObject bloodEffect;
 
     void Start()
     {
         swordCollider = this.GetComponent<BoxCollider>();
         swordCollider.enabled = false;
+        swordAnimation = GetComponent<Animation>();
     }
 
     public IEnumerator Attack()
@@ -35,16 +39,27 @@ public class Sword : MonoBehaviour
     {
         if(hit.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy))
         {
-            enemy.Damage(25);
+            enemy.Damage(250);
+            Instantiate(bloodEffect, hit.transform.position, Quaternion.identity);
         }
     }
 
     private void Update()
     {
         //Använd svärd
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&&pickedUp)
         {
-            StartCoroutine(Attack());
+            swordAnimation.Play();
+            //StartCoroutine(Attack());
         }
+    }
+    public void PickUp()
+    {
+        pickedUp = true;
+        this.transform.SetParent(Camera.main.transform);
+    }
+    public void Drop()
+    {
+
     }
 }
