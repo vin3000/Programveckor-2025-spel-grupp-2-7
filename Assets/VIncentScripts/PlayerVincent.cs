@@ -6,12 +6,16 @@ public class PlayerVincent : MonoBehaviour
 {
     [SerializeField]
     private float interactRange;
+    
 
-    List<IItem> items;
+    
+    List<IItem> items=new List<IItem>();
+    
+    int selectedItem;
 
     private void Start()
     {
-        items = new List<IItem>();
+        
     }
 
     private void Update()
@@ -19,26 +23,64 @@ public class PlayerVincent : MonoBehaviour
         RaycastHit hit;
         if (Input.GetKeyDown(KeyCode.E))
         {
+            
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
             {
-                Debug.Log(hit.transform.gameObject.name);
+                
+                //Debug.Log(hit.transform.gameObject.name);
                 if (hit.transform.gameObject.TryGetComponent<IItem>(out IItem item))
                 {
+                    print(item.gameObject);
                     Debug.Log("gaaa");
-                    BoxCollider pickupCollider = hit.transform.gameObject.GetComponent<BoxCollider>();
+                    Collider pickupCollider = hit.transform.gameObject.GetComponent<Collider>();
                     pickupCollider.enabled = false;
                     item.PickUp();
                     Debug.Log(items.Count);
-                    for (global::System.Int32 i = 0; i < items.Count; i++)
+                    items.Add(item);
+                    
+                   
+                    
+                    /*for (global::System.Int32 i = 0; i < items.Count; i++)
                     {
                         Debug.Log(i);
                         if (items[i] != null) continue;
                         items.Insert(i, item);
                         //fix this
                     }
+                    */
                 }
+                
+            }
+            
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            selectedItem = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            selectedItem = 1;
+            
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            selectedItem = 2;
+
+        }
+        for (int i = 0; i < items.ToArray().Length; i++)
+        {
+            if (i == selectedItem)
+            {
+                items[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                items[i].gameObject.SetActive(false);
             }
         }
+
+
+        /*
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log(items[1]);
@@ -51,6 +93,7 @@ public class PlayerVincent : MonoBehaviour
                 //fix this
             }
         }
+        */
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
         {
