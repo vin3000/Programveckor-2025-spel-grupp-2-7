@@ -14,15 +14,7 @@ public class PlayerMove : MonoBehaviour
     public float crouchSpeed = 6f;
     public float crouchYScale;
     public float standYScale;
-    public float standSpeed = 12f;
-    public float smoothTime=3f;
-
-    /*public float standSpeed = 3f;
-    public float standingHeight=1f;
-    public float crouchHeight=0.5f;
-    
-    public Vector3 offset;
-    public Transform player;*/
+    public float standSpeed = 12f; 
     public bool crouching;
     public bool canStand;
 
@@ -74,14 +66,6 @@ public class PlayerMove : MonoBehaviour
         }
 
 
-
-       /* if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out RaycastHit hit, 2f))
-        {
-            canStand=false;
-        }*/
-
-
-
         //skapar en sphere som kan kolla om vi rör marken
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask,QueryTriggerInteraction.Ignore) && !Physics.CheckSphere(groundCheck.position, groundDistance, spiderMask,QueryTriggerInteraction.Collide) ;
 
@@ -123,40 +107,7 @@ public class PlayerMove : MonoBehaviour
 
         controller.Move((velocity+damageVelocity) * Time.deltaTime);
 
-        /*if (Input.GetKey(KeyCode.LeftControl))
-        {
-            crouching = true;
-        }
-        else
-        {
-            crouching = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            crouching = !crouching;
-        }
-
-        if (crouching == false)
-        {
-            controller.height = controller.height - crouchSpeed * Time.deltaTime;
-            if (controller.height <= standingHeight)
-            {
-                controller.height = crouchHeight;
-            }
-        }
-        if (crouching == true)
-        {
-            controller.height = controller.height + crouchSpeed * Time.deltaTime;
-               if (controller.height < standingHeight)
-               {
-                   player.position = player.position + offset * Time.deltaTime;
-               }
-            if (controller.height >= standingHeight)
-            {
-                controller.height = standingHeight;
-            }
-        }*/
+       
 
     }
 }
