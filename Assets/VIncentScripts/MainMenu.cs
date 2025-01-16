@@ -13,7 +13,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject ingameSettingsUI;
 
-    private bool paused = false;
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync("MainScene");
@@ -44,46 +43,5 @@ public class MainMenu : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu");
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Escape pressed");
-            if (!paused)
-            {
-                PauseGame();
-            }
-            /*if (paused)
-            {
-                UnpauseGame();
-            }
-            */
-        }
-    }
-
-    public void PauseGame()
-    {
-        paused = true;
-        ingameSettingsUI.SetActive(true);
-        Time.timeScale = 0;
-        Cursor.lockState = CursorLockMode.None;
-    }
-
-    public void UnpauseGame()
-    {
-        if (paused)
-        {
-            paused = false;
-            ingameSettingsUI.SetActive(false);
-            Time.timeScale = 1;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-    }
-
-    private void Awake()
-    {
-        //DontDestroyOnLoad(this.gameObject);
     }
 }

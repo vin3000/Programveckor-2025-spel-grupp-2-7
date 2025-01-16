@@ -14,7 +14,7 @@ public class Sword : MonoBehaviour,IItem
     void Start()
     {
         swordCollider = this.GetComponent<BoxCollider>();
-        swordCollider.enabled = false;
+        //swordCollider.enabled = false;
         swordAnimation = GetComponent<Animation>();
     }
 
@@ -37,7 +37,7 @@ public class Sword : MonoBehaviour,IItem
 
     private void OnTriggerEnter(Collider hit)
     {
-        if(hit.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy))
+        if(hit.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy)&&pickedUp==true)
         {
             enemy.Damage(250);
             Instantiate(bloodEffect, hit.transform.position, Quaternion.identity);
@@ -56,7 +56,8 @@ public class Sword : MonoBehaviour,IItem
     public void PickUp()
     {
         pickedUp = true;
-        this.transform.SetParent(Camera.main.transform);
+        transform.SetParent(Camera.main.transform);
+        transform.SetLocalPositionAndRotation(new Vector3(0.4f, -0.24f, 0.66f), new Quaternion(90, -68, 0, 0));
     }
     public void Drop()
     {

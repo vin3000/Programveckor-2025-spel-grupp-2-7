@@ -36,7 +36,7 @@ public class DungeonTeleporter : MonoBehaviour
             yield return null;
         }
         // Move the GameObject (you attach this in the Inspector) to the newly loaded Scene
-        //SceneManager.MoveGameObjectToScene(playerObject, SceneManager.GetSceneByName(m_Scene)); //lägg tillbaks senare
+        SceneManager.MoveGameObjectToScene(playerObject, SceneManager.GetSceneByName(m_Scene)); //lägg tillbaks senare
         // Unload the previous Scene
         SceneManager.UnloadSceneAsync(currentScene);
     }

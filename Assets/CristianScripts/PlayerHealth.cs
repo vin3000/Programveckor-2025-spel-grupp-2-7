@@ -40,5 +40,6 @@ public class PlayerHealth : MonoBehaviour
             gameOverScript.Setup();
         }
     }
+
     
 }
