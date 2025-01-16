@@ -67,7 +67,7 @@ public class PlayerMove : MonoBehaviour
 
 
         //skapar en sphere som kan kolla om vi rör marken
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) && !Physics.CheckSphere(groundCheck.position, groundDistance, spiderMask,QueryTriggerInteraction.Collide) ;
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask,QueryTriggerInteraction.Ignore) && !Physics.CheckSphere(groundCheck.position, groundDistance, spiderMask,QueryTriggerInteraction.Collide) ;
 
 
         if (isGrounded && velocity.y < 0)

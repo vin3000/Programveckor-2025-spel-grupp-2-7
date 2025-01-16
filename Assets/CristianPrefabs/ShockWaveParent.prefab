@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   Directional: 0
-  Force: 10
+  Force: 70
   destroyOnHit: 0
 --- !u!1 &2327224223865315653
 GameObject:
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   Directional: 0
-  Force: 10
+  Force: 70
   destroyOnHit: 0
 --- !u!1 &2702272073306028326
 GameObject:
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   Directional: 0
-  Force: 10
+  Force: 70
   destroyOnHit: 0
 --- !u!1 &2831571449709025738
 GameObject:
@@ -2854,7 +2854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   Directional: 0
-  Force: 10
+  Force: 70
   destroyOnHit: 0
 --- !u!1 &4647137302154357713
 GameObject:
@@ -3010,7 +3010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   Directional: 0
-  Force: 10
+  Force: 70
   destroyOnHit: 0
 --- !u!1 &6841417007034660246
 GameObject:
@@ -3135,7 +3135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   Directional: 0
-  Force: 10
+  Force: 70
   destroyOnHit: 0
 --- !u!1 &8289237690395744770
 GameObject:
@@ -3260,7 +3260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   Directional: 0
-  Force: 10
+  Force: 70
   destroyOnHit: 0
 --- !u!1 &8335464571178446551
 GameObject:
@@ -3271,6 +3271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1507109835689850749}
+  - component: {fileID: 7332730544213460414}
   m_Layer: 13
   m_Name: ShockWaveParent
   m_TagString: Untagged
@@ -3294,6 +3295,18 @@ Transform:
   - {fileID: 3184398271952684690}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7332730544213460414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335464571178446551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38cd4d05199969f4b93ff7077e450cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8966080947115069118
 GameObject:
   m_ObjectHideFlags: 0
@@ -3417,5 +3430,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   Directional: 0
-  Force: 10
+  Force: 70
   destroyOnHit: 0

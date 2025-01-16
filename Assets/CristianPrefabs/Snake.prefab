@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae66e39120b167e48bb74bfe2e60b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
 --- !u!136 &5767126612006169856
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -118,8 +117,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.57, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.6906587}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 20, y: 20, z: 13.813173}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6454457100172745627}
   m_Father: {fileID: 0}
@@ -239,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f41b6411fa7ae64ea96ed17e5368d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 100
 --- !u!114 &1482578345872342823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,4 +251,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945026db50a35db4ea9ab946cb04712d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 200
+  Health: 300
