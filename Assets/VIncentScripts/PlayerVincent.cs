@@ -7,9 +7,6 @@ public class PlayerVincent : MonoBehaviour
     [SerializeField]
     private float interactRange;
 
-    [SerializeField]
-    private GameObject settingsUI;
-
     List<IItem> items;
 
     private void Awake()
@@ -27,7 +24,6 @@ public class PlayerVincent : MonoBehaviour
         RaycastHit hit;
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange));
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
             {
                 Debug.Log(hit.transform.gameObject.name);
@@ -61,20 +57,9 @@ public class PlayerVincent : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            settingsUI.SetActive(true);
-        }
-
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
         {
             Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * hit.distance, Color.yellow); //ta bort senare
         }
-    }
-
-
-
-    private void FixedUpdate()
-    {
     }
 }
