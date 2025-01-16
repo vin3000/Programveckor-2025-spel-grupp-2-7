@@ -29,4 +29,14 @@ public class MainMenu : MonoBehaviour
         settingsUI.SetActive(false);
         mainMenuUI.SetActive(true);
     }
+
+    public void CloseSettingsMenuInGame()
+    {
+        settingsUI.SetActive(false);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
 }
