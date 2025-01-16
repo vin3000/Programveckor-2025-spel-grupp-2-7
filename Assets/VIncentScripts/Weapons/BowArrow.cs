@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BowArrow : MonoBehaviour
 {
+
+    public GameObject bloodEffect;
     [SerializeField]
     private float damage;
 
@@ -41,6 +43,7 @@ public class BowArrow : MonoBehaviour
             if (collider.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy))
             {
                 enemy.Damage(damage);
+                Instantiate(bloodEffect, transform.position,Quaternion.identity);
 
             }
             Destroy(this.gameObject);
