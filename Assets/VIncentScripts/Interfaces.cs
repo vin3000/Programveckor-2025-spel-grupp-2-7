@@ -7,6 +7,7 @@ public class Interfaces
 
 public interface IItem
 {
+    GameObject gameObject { get; }
     public bool pickedUp { get; set; }
     void PickUp();
 

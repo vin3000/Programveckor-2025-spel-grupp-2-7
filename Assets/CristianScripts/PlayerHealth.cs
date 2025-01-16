@@ -34,6 +34,8 @@ public class PlayerHealth : MonoBehaviour
             nrOfPotions -= 1;
 
         }
+        
     }
+
     
 }

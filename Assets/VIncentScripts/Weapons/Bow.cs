@@ -68,4 +68,12 @@ public class Bow : MonoBehaviour, IItem
     {
         return (!isReloading && currentArrow != null);
     }
+    private void OnEnable()
+    {
+        if (currentArrow == null&&pickedUp==true)
+        {
+            isReloading = true;
+            StartCoroutine(ReloadAfterTime());
+        }
+    }
 }
