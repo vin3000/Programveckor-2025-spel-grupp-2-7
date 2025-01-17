@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 100
+  goblinSoundEffect: {fileID: 8300000, guid: dcec6c34f9e1673419ba3a19d0da0493, type: 3}
 --- !u!114 &1857946231413899360
 MonoBehaviour:
   m_ObjectHideFlags: 0

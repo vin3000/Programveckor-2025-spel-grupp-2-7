@@ -30,10 +30,16 @@ public class SnakeAI : MonoBehaviour
 
     IEnumerator snakeAmbience()
     {
-        if (playing) StopCoroutine(snakeAmbience());
-        playing = true;
-        SoundFXManager.instance.PlaySoundFXClip(snakeSoundEffect, this.transform, 0.25f, 0.5f);
-        yield return new WaitForSeconds(Random.Range(1, 10));
-        playing = false;
+        if (playing)
+        {
+            StopCoroutine(snakeAmbience());
+        }
+        else
+        {
+            playing = true;
+            SoundFXManager.instance.PlaySoundFXClip(snakeSoundEffect, this.transform, 0.25f, 0.5f);
+            yield return new WaitForSeconds(Random.Range(1, 10));
+            playing = false;
+        }
     }
 }
