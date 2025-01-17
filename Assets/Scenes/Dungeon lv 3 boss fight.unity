@@ -6590,7 +6590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spider: {fileID: 2089262418}
-  bossMusic: {fileID: 0}
+  bossMusic: {fileID: 1598010305}
 --- !u!65 &1598010301
 BoxCollider:
   m_ObjectHideFlags: 0
