@@ -85,6 +85,9 @@ public class PauseMenu : MonoBehaviour
     public void ReturnToMenu()
     {
         confirmationPrompt.SetActive(false);
+        GameObject player = GameObject.FindWithTag("Player");
+        SceneManager.MoveGameObjectToScene(player, SceneManager.GetActiveScene());
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
