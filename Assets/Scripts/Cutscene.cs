@@ -29,6 +29,7 @@ public class Cutscene : MonoBehaviour
             Player.SetActive(true);
             text.enabled = false;
             rb.isKinematic = false;
+            cutsceneCamera.gameObject.SetActive(false);
 
         }
         else
