@@ -2522,6 +2522,7 @@ GameObject:
   - component: {fileID: 331237077}
   - component: {fileID: 331237076}
   - component: {fileID: 331237075}
+  - component: {fileID: 331237079}
   m_Layer: 0
   m_Name: teleport 2
   m_TagString: Untagged
@@ -2544,7 +2545,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2620,6 +2621,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &331237079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331237074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6e3e39af9a3e141a3b8a8916d846b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Scene: Dungeon lv 2
+  player: {fileID: 0}
+  DungeonExit: 2
 --- !u!1 &333314412
 GameObject:
   m_ObjectHideFlags: 0
@@ -6407,6 +6423,7 @@ GameObject:
   - component: {fileID: 820608360}
   - component: {fileID: 820608359}
   - component: {fileID: 820608358}
+  - component: {fileID: 820608362}
   m_Layer: 0
   m_Name: teleport 1
   m_TagString: Untagged
@@ -6429,7 +6446,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -6505,6 +6522,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &820608362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820608357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6e3e39af9a3e141a3b8a8916d846b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Scene: Dungeon lv 2
+  player: {fileID: 0}
+  DungeonExit: 1
 --- !u!1 &820617027
 GameObject:
   m_ObjectHideFlags: 0
@@ -6751,6 +6783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 841547152}
+  DungeonExit: 0
 --- !u!4 &841547152
 Transform:
   m_ObjectHideFlags: 0
@@ -12864,6 +12897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 100
+  DungeonExit: 0
 --- !u!1 &1821047198
 GameObject:
   m_ObjectHideFlags: 0
