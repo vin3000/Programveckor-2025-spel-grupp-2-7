@@ -8,7 +8,8 @@ public class LookAtPlayer : MonoBehaviour
     Vector3 lookRotation;
     Vector3 lookPosition;
     Transform Player;
-    
+    public float distance;
+    public bool looking=false;
     void Start()
     {
         if (FindAnyObjectByType<PlayerMove>() != null)
@@ -25,15 +26,22 @@ public class LookAtPlayer : MonoBehaviour
     {
         if (Player != null)
         {
+            distance = Vector3.Distance(Player.position, transform.position);
             lookPosition = Player.position;
             lookPosition.y = transform.position.y;
             lookRotation = (lookPosition - transform.position).normalized;
-            transform.rotation = Quaternion.LookRotation(lookRotation);
-
-            if (transform.parent != null)
+            if (distance < 500)
             {
-                transform.parent.transform.eulerAngles = new Vector3(90, transform.eulerAngles.y, transform.eulerAngles.z);
+                transform.rotation = Quaternion.LookRotation(lookRotation);
+                looking = true;
+
+
+                if (transform.parent != null)
+                {
+                    transform.parent.transform.eulerAngles = new Vector3(90, transform.eulerAngles.y, transform.eulerAngles.z);
+                }
             }
+            
         }
         
         
