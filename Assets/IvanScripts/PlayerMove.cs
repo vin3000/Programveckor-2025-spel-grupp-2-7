@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     public float crouchSpeed = 6f;
     public float crouchYScale;
     public float standYScale;
-    public float standSpeed = 12f; 
+    public float standSpeed = 50f; 
     public bool crouching;
     public bool canStand;
 

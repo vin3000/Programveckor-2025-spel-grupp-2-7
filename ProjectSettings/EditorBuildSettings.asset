@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dungeon lv 2.unity
     guid: a6be2a99adce0b340bd80dcee9e0d198
+  - enabled: 1
+    path: Assets/Scenes/Dungeon lv 3 boss fight.unity
+    guid: e099ecb60acf0f048896a71b36fa7aea
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a53740f79f6530443ada1f38902a5195, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
