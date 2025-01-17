@@ -10,6 +10,7 @@ public class Sword : MonoBehaviour,IItem
     private bool isAttacking = false;
     Animation swordAnimation;
     public GameObject bloodEffect;
+    [SerializeField] private AudioClip swordSoundEffect;
 
     void Start()
     {
@@ -49,7 +50,9 @@ public class Sword : MonoBehaviour,IItem
         //Använd svärd
         if (Input.GetMouseButtonDown(0)&&pickedUp)
         {
+            if (Time.timeScale == 0f) return;
             swordAnimation.Play();
+            SoundFXManager.instance.PlaySoundFXClip(swordSoundEffect, this.gameObject.transform, 30f, 500f);
             //StartCoroutine(Attack());
         }
     }

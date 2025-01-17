@@ -10,6 +10,7 @@ public class LookAtPlayer : MonoBehaviour
     Transform Player;
     public float distance;
     public bool looking=false;
+    
     void Start()
     {
         if (FindAnyObjectByType<PlayerMove>() != null)
@@ -24,6 +25,7 @@ public class LookAtPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Player != null)
         {
             distance = Vector3.Distance(Player.position, transform.position);

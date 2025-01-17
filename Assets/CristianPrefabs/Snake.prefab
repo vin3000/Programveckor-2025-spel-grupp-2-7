@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 80
+  snakeSoundEffect: {fileID: 8300000, guid: 77c82ba6ddf222242b1974d690cb8ce4, type: 3}
 --- !u!114 &1482578345872342823
 MonoBehaviour:
   m_ObjectHideFlags: 0
