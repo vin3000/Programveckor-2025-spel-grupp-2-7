@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class potionPickup : MonoBehaviour, IItem
 {
+    private void Start()
+    {
+        playerHealth = FindAnyObjectByType<PlayerHealth>();
+    }
     public bool pickedUp { get; set; }
     public PlayerHealth playerHealth;
     public void PickUp()
