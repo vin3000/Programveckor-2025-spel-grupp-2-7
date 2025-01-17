@@ -31,14 +31,17 @@ public class gameOverScript : MonoBehaviour
 
     public void Restart()
     {
+        playerHealth.GetComponent<PlayerMove>().enabled=false;
+        playerHealth.GetComponent<CharacterController>().enabled = false;
         Scene currentScene = SceneManager.GetActiveScene();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(currentScene.buildIndex);
-        GameObject playerObject = playerHealth.gameObject;
+        //GameObject playerObject = playerHealth.gameObject;
         playerHealth.health = playerHealth.maxHealth;
-        SceneManager.MoveGameObjectToScene(playerObject, currentScene);
+        //SceneManager.MoveGameObjectToScene(playerObject, currentScene);
 
-        SceneManager.UnloadSceneAsync(currentScene);
+        //SceneManager.UnloadSceneAsync(currentScene);
         gameOverScreen.enabled = false;
+        gameHasEnded = false;
         Time.timeScale = 1f;
     }
 
