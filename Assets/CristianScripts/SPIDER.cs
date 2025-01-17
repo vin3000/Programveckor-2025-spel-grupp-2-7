@@ -15,7 +15,7 @@ public class SPIDER : MonoBehaviour
 
     float shootTimer = 1;
     float shockTimer;
-    float webTimer;
+    float webTimer=5;
 
     public float jumpForce;
     
@@ -26,6 +26,7 @@ public class SPIDER : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Player = FindAnyObjectByType<PlayerMove>().transform;
     }
 
     // Update is called once per frame
@@ -43,7 +44,8 @@ public class SPIDER : MonoBehaviour
         {
             shootTimer = 1.5f;
             GameObject shot = Instantiate(spiderShot, transform.position+transform.forward*2, Quaternion.identity);
-            shot.GetComponent<Rigidbody>().AddForce(transform.forward * 100,ForceMode.Impulse);
+            shot.transform.LookAt(Player.position, Vector3.up);
+            shot.GetComponent<Rigidbody>().AddForce(shot.transform.forward * 300,ForceMode.Impulse);
         }
         if (shockTimer <= 0)
         {
