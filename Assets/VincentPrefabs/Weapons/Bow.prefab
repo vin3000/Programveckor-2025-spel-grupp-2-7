@@ -140,6 +140,7 @@ MonoBehaviour:
   reloadTime: 1
   arrowPrefab: {fileID: 2737220267667410652, guid: dc5eaa1d454133f43960461e40f3bf14, type: 3}
   arrowSpawnPoint: {fileID: 4651635439398697684}
+  arrowSoundEffect: {fileID: 8300000, guid: 8a7f3eb0b63fb4a40bbe1f7efea89fac, type: 3}
 --- !u!114 &1528392006662075337
 MonoBehaviour:
   m_ObjectHideFlags: 0

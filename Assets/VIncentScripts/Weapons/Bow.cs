@@ -13,6 +13,9 @@ public class Bow : MonoBehaviour, IItem
     [SerializeField]
     private Transform arrowSpawnPoint;
 
+    [SerializeField]
+    private AudioClip arrowSoundEffect;
+
     private BowArrow currentArrow;
 
     private bool isReloading;
@@ -53,12 +56,13 @@ public class Bow : MonoBehaviour, IItem
     public void Fire(float firePower)
     {
         //SKjut iväg en pil
-        if (!pickedUp) return;
+        if (!pickedUp || Time.timeScale == 0f) return;
         //Om pilbågen inte plockats upp så kan den inte skjutas
         if (isReloading || currentArrow == null) return;
         //var force = arrowSpawnPoint.TransformDirection(Vector3.back * firePower);
         var force = (Camera.main.transform.forward * firePower);
         currentArrow.fired = true;
+        SoundFXManager.instance.PlaySoundFXClip(arrowSoundEffect, currentArrow.transform, 20f, 500);
         currentArrow.Fly(force);
         currentArrow = null;
         Reload();
