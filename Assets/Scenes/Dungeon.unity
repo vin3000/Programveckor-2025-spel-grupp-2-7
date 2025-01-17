@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 34554768}
   - component: {fileID: 34554767}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CrossHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16537,6 +16537,7 @@ MonoBehaviour:
   potionEquiped: 0
   nrOfPotions: 0
   gameOverScript: {fileID: 0}
+  potionSoundEffect: {fileID: 0}
 --- !u!143 &1808323593
 CharacterController:
   m_ObjectHideFlags: 0

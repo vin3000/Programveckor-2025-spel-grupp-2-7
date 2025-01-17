@@ -42,7 +42,7 @@ public class PlayerMove : MonoBehaviour
         new Ray(transform.position, transform.up);
         RaycastHit hit;
    
-        if(Physics.Raycast(transform.position, transform.up, out hit, 4))
+        if(Physics.Raycast(transform.position, transform.up, out hit, 80))
         {
             canStand = false;
         }
