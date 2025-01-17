@@ -19,12 +19,12 @@ public class SnakeAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(snakeAmbience());
         if (lookAtPlayer.looking == true)
         {
             float oldvelocityY = rb.linearVelocity.y;
             rb.linearVelocity = transform.up * speed;
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, oldvelocityY, rb.linearVelocity.z);
+            StartCoroutine(snakeAmbience());
         }
     }
 
@@ -37,7 +37,7 @@ public class SnakeAI : MonoBehaviour
         else
         {
             playing = true;
-            SoundFXManager.instance.PlaySoundFXClip(snakeSoundEffect, this.transform, 0.25f, 0.5f);
+            SoundFXManager.instance.PlaySoundFXClip(snakeSoundEffect, this.transform, 0.25f, 125f);
             yield return new WaitForSeconds(Random.Range(1, 10));
             playing = false;
         }

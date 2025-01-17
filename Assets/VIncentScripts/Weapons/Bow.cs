@@ -62,7 +62,7 @@ public class Bow : MonoBehaviour, IItem
         //var force = arrowSpawnPoint.TransformDirection(Vector3.back * firePower);
         var force = (Camera.main.transform.forward * firePower);
         currentArrow.fired = true;
-        SoundFXManager.instance.PlaySoundFXClip(arrowSoundEffect, currentArrow.transform, 20f, 500);
+        SoundFXManager.instance.PlaySoundFXClip(arrowSoundEffect, currentArrow.transform, 1f, 500);
         currentArrow.Fly(force);
         currentArrow = null;
         Reload();
