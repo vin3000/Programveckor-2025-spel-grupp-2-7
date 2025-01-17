@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     public int nrOfPotions;
 
     public gameOverScript gameOverScript;
+
+    [SerializeField] private AudioClip potionSoundEffect;
     void Start()
     {
         health = maxHealth;
@@ -29,9 +31,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && potionEquiped == true)
         {
-
             if (nrOfPotions <= 0) return;
             health += 5;
+            SoundFXManager.instance.PlaySoundFXClip(potionSoundEffect, this.gameObject.transform, 10f, 500);
             nrOfPotions -= 1;
 
         }
