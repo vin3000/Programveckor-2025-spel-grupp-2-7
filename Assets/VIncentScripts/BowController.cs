@@ -20,7 +20,7 @@ public class BowController : MonoBehaviour
 
     void Start()
     {
-        bow.Reload();
+        bow?.Reload();
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class BowController : MonoBehaviour
        if(fire && Input.GetMouseButtonUp(0))
         {
             firePower = Mathf.Clamp(firePower, minFirePower, maxFirePower);
-            bow.Fire(firePower);
+            bow?.Fire(firePower); //frågetecknet gör att metoden bara kallas om bow har ett värde
             firePower = 0;
             fire = false;
         }

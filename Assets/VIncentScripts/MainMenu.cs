@@ -10,13 +10,20 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject settingsUI;
 
-    [SerializeField]
-    private GameObject ingameSettingsUI;
-
-    private bool paused = false;
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync("MainScene");
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(settingsUI.activeSelf)
+            {
+                CloseSettingsMenu();
+            }
+        }
     }
 
     public void QuitGame()
@@ -34,20 +41,5 @@ public class MainMenu : MonoBehaviour
     {
         settingsUI.SetActive(false);
         mainMenuUI.SetActive(true);
-    }
-
-    public void CloseSettingsMenuInGame()
-    {
-        settingsUI.SetActive(false);
-    }
-
-    public void ReturnToMainMenu()
-    {
-        SceneManager.LoadSceneAsync("MainMenu");
-    }
-
-    private void Awake()
-    {
-        //DontDestroyOnLoad(this.gameObject);
     }
 }

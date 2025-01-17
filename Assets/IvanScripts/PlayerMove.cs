@@ -55,14 +55,14 @@ public class PlayerMove : MonoBehaviour
         {
             crouching = true;
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            speed = crouchSpeed;
+            speed /= 2;
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftControl)&&isGrounded && canStand)
+        if (Input.GetKeyUp(KeyCode.LeftControl)&&isGrounded && canStand && crouching == true)
         {
             crouching = false;
             transform.localScale = new Vector3(transform.localScale.x, standYScale, transform.localScale.z);
-            speed = 12;
+            speed = standSpeed;
         }
 
 
