@@ -11,22 +11,33 @@ public class LookAtPlayer : MonoBehaviour
     
     void Start()
     {
-        Player = FindAnyObjectByType<PlayerMove>().GetComponent<Transform>();
+        if (FindAnyObjectByType<PlayerMove>() != null)
+        {
+            FindAnyObjectByType<PlayerMove>().TryGetComponent<Transform>(out Player);
+        }
+        
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        lookPosition = Player.position;
-        lookPosition.y = transform.position.y;
-        lookRotation = (lookPosition - transform.position).normalized;
-        
-        transform.rotation = Quaternion.LookRotation(lookRotation);
-
-        if (transform.parent != null)
+        if (Player != null)
         {
-            transform.parent.transform.eulerAngles = new Vector3(90, transform.eulerAngles.y, transform.eulerAngles.z);
+            lookPosition = Player.position;
+            lookPosition.y = transform.position.y;
+            lookRotation = (lookPosition - transform.position).normalized;
+            transform.rotation = Quaternion.LookRotation(lookRotation);
+
+            if (transform.parent != null)
+            {
+                transform.parent.transform.eulerAngles = new Vector3(90, transform.eulerAngles.y, transform.eulerAngles.z);
+            }
         }
+        
+        
+        
         
             
         
