@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3a457fd4681bd45a33b2828b3cf2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 100
+  interactRange: 150
   DungeonExit: 0
 --- !u!114 &4299951971166079117
 MonoBehaviour:
@@ -363,4 +363,4 @@ MonoBehaviour:
   potionEquiped: 0
   nrOfPotions: 0
   gameOverScript: {fileID: 0}
-  potionSoundEffect: {fileID: 0}
+  potionSoundEffect: {fileID: 8300000, guid: 660ea0fdc0571374d9c179ac0e410d30, type: 3}
