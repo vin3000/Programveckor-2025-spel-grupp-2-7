@@ -24,6 +24,7 @@ public class Sword : MonoBehaviour,IItem
         //Svinga svärdet och gör så att allt det träffar tar skada (just nu förstör det då vi inte har ett health system).
         if(!isAttacking)
         {
+            SoundFXManager.instance.PlaySoundFXClip(swordSoundEffect, this.gameObject.transform, 30f, 500f);
             swordCollider.enabled = true;
             isAttacking = true;
             yield return new WaitForSeconds(hitBoxDuration);
@@ -52,7 +53,6 @@ public class Sword : MonoBehaviour,IItem
         {
             if (Time.timeScale == 0f) return;
             swordAnimation.Play();
-            SoundFXManager.instance.PlaySoundFXClip(swordSoundEffect, this.gameObject.transform, 30f, 500f);
             //StartCoroutine(Attack());
         }
     }

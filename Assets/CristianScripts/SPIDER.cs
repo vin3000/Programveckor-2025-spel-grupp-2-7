@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SPIDER : MonoBehaviour
 {
@@ -66,5 +67,9 @@ public class SPIDER : MonoBehaviour
         {
             Instantiate(shockWave, transform.position, Quaternion.identity);
         }
+    }
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

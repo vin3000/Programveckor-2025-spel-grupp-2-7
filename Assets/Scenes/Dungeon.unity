@@ -9420,15 +9420,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317124857490587817, guid: f322f1aa08b8c3d44afbace1d64dff2f, type: 3}
       propertyPath: m_Name
-      value: sword
+      value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 2317124857490587817, guid: f322f1aa08b8c3d44afbace1d64dff2f, type: 3}
       propertyPath: m_Layer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2317124857490587817, guid: f322f1aa08b8c3d44afbace1d64dff2f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5108359401268834475, guid: f322f1aa08b8c3d44afbace1d64dff2f, type: 3}
       propertyPath: m_Layer

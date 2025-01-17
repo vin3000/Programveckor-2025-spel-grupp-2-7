@@ -4,7 +4,7 @@ using UnityEngine;
 public class spideractivate : MonoBehaviour
 {
     public SPIDER spider;
-
+    [SerializeField] private AudioSource bossMusic;
     void Start()
     {
         spider.gameObject.SetActive(false);
@@ -15,6 +15,7 @@ public class spideractivate : MonoBehaviour
         if (collision.tag == "Player")
         {
             spider.gameObject.SetActive(true);
+            bossMusic.Play();
         }
     }
 }

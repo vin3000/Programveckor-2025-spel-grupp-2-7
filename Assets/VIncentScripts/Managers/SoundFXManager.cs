@@ -21,7 +21,7 @@ public class SoundFXManager : MonoBehaviour
 
         audioSource.volume = volume;
 
-        audioSource.maxDistance = range;
+        audioSource.minDistance = range;
 
         audioSource.Play();
 

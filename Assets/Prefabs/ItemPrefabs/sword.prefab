@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 7296263910373441552}
   - component: {fileID: 8091574885271916971}
   m_Layer: 0
-  m_Name: sword
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodEffect: {fileID: 7837499641162018183, guid: 570a4caa86ff34e4fa69afe40b14933a, type: 3}
+  swordSoundEffect: {fileID: 0}
 --- !u!65 &7296263910373441552
 BoxCollider:
   m_ObjectHideFlags: 0

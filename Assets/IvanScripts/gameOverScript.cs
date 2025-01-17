@@ -22,7 +22,6 @@ public class gameOverScript : MonoBehaviour
         {
             Time.timeScale = 0f;
             gameOverScreen.enabled = true;
-            Debug.Log("game over");
             gameHasEnded = true;
             Cursor.lockState = CursorLockMode.None;
         }
@@ -42,10 +41,15 @@ public class gameOverScript : MonoBehaviour
         gameOverScreen.enabled = false;
         gameHasEnded = false;
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void GoToMainMenu()
     {
+        GameObject player = playerHealth.gameObject;
+        SceneManager.MoveGameObjectToScene(player, SceneManager.GetActiveScene());
+        SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetActiveScene());
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
 
     }
