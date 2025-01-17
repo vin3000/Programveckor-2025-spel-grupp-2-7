@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     public float crouchSpeed = 6f;
     public float crouchYScale;
     public float standYScale;
-    public float standSpeed = 12f; 
+    public float standSpeed = 50f; 
     public bool crouching;
     public bool canStand;
 
@@ -28,7 +28,7 @@ public class PlayerMove : MonoBehaviour
     public Vector3 damageVelocity;
     bool isGrounded;
 
-
+    
     private void Start()
     {
         standYScale = transform.localScale.y;
@@ -62,7 +62,7 @@ public class PlayerMove : MonoBehaviour
         {
             crouching = false;
             transform.localScale = new Vector3(transform.localScale.x, standYScale, transform.localScale.z);
-            speed = 12;
+            speed = standSpeed;
         }
 
 

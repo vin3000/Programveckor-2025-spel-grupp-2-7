@@ -32,8 +32,7 @@ public class gameOverScript : MonoBehaviour
     public void Restart()
     {
         Scene currentScene = SceneManager.GetActiveScene();
-        Debug.Log("hi");
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(currentScene.buildIndex, LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(currentScene.buildIndex);
         GameObject playerObject = playerHealth.gameObject;
         playerHealth.health = playerHealth.maxHealth;
         SceneManager.MoveGameObjectToScene(playerObject, currentScene);

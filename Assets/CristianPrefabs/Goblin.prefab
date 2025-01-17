@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1664383258011875469}
   - component: {fileID: 1857946231413899360}
   - component: {fileID: 3524912630995805212}
+  - component: {fileID: 7266547407488634850}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -160,6 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae66e39120b167e48bb74bfe2e60b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 0
+  looking: 0
 --- !u!114 &1664383258011875469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945026db50a35db4ea9ab946cb04712d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 500
 --- !u!95 &3524912630995805212
 Animator:
   serializedVersion: 7
@@ -208,6 +211,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &7266547407488634850
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765012473460464488}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.96
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2399967303213586966
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +700,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6ec4710dd963dc4d9c507b0a55aaa5c, type: 2}
+  - {fileID: 2100000, guid: 0cf6ba9fb739b694cb8c4122d04ccf61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

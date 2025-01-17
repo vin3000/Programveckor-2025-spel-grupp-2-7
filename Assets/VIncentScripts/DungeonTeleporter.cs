@@ -5,40 +5,52 @@ using UnityEngine.SceneManagement;
 
 public class DungeonTeleporter : MonoBehaviour
 {
-    public string m_Scene;
+    [SerializeField] private string m_Scene;
 
-    public GameObject playerObject;
+    [SerializeField] private PlayerVincent player;
 
-    void Update()
+    [SerializeField] private int DungeonExit;
+
+    private void Start()
     {
-    }
-
-    IEnumerator LoadYourAsyncScene()
-    {
-        Scene currentScene = SceneManager.GetActiveScene();
-
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(m_Scene, LoadSceneMode.Additive);
-
-        while (!asyncLoad.isDone)
+        PlayerVincent playerFound = GameObject.FindWithTag("Player").GetComponent<PlayerVincent>();
+        if(SceneManager.GetActiveScene().name != "MainScene")
         {
-            yield return null;
+            player = playerFound;
         }
-
-        SceneManager.MoveGameObjectToScene(playerObject, SceneManager.GetSceneByName(m_Scene));
-
-        SceneManager.UnloadSceneAsync(currentScene);
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*  IEnumerator LoadYourAsyncScene()
+      {
+          Scene currentScene = SceneManager.GetActiveScene();
+
+          AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(m_Scene, LoadSceneMode.Additive);
+
+          while (!asyncLoad.isDone)
+          {
+              yield return null;
+          }
+
+          SceneManager.UnloadSceneAsync(currentScene);
+      }
+  */ //ska testa dontdestroyonload istället
+
+    private void LoadDungeonScene() 
     {
-        if(other.gameObject == playerObject)
+        SceneManager.LoadScene(m_Scene);
+    }
+    private void OnTriggerEnter(Collider other)     
+    {
+        if(other.gameObject == player.gameObject)
         {
             CharacterController playerController = other.gameObject.GetComponent<CharacterController>();
             PlayerMove playerMove = other.gameObject.GetComponent<PlayerMove>();
             playerController.enabled = false;
             playerMove.enabled = false;
-            StartCoroutine(LoadYourAsyncScene());
-        }
+            //StartCoroutine(LoadYourAsyncScene());
+            player.DungeonExit = DungeonExit;
+            LoadDungeonScene();
+        } 
             
     }
 }

@@ -6,17 +6,21 @@ public class SnakeAI : MonoBehaviour
     Rigidbody rb;
     
     public float speed;
+    LookAtPlayer lookAtPlayer;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        lookAtPlayer = GetComponentInChildren<LookAtPlayer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float oldvelocityY = rb.linearVelocity.y;
-        rb.linearVelocity = transform.up * speed;
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, oldvelocityY, rb.linearVelocity.z);
-        
+        if (lookAtPlayer.looking == true)
+        {
+            float oldvelocityY = rb.linearVelocity.y;
+            rb.linearVelocity = transform.up * speed;
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, oldvelocityY, rb.linearVelocity.z);
+        }
     }
 }
