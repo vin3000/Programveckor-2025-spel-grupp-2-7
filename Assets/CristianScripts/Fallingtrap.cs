@@ -30,7 +30,7 @@ public class Fallingtrap : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer != 3 && rb.isKinematic == true && fallTimer <= 0) //så länge någonting annat än marken är under fällan så faller den
+        if (other.gameObject.layer == 7 && rb.isKinematic == true && fallTimer <= 0) //så länge någonting annat än marken är under fällan så faller den
         {
             Fall();
         }
