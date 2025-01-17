@@ -16,7 +16,7 @@ public class PlayerSpawnPoint : MonoBehaviour
         {
             if (playerFound.DungeonExit == DungeonExit)
             {
-                playerFound.DungeonExit = 0;
+                //playerFound.DungeonExit = 0;
                 playerFound.gameObject.transform.position = spawnPos.position;
                 playerFound.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 CharacterController playerController = playerFound.gameObject.GetComponent<CharacterController>();
