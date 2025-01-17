@@ -7,8 +7,9 @@ public class PlayerVincent : MonoBehaviour
     [SerializeField]
     private float interactRange;
 
-    PlayerHealth playerHealth;
+    private PlayerHealth playerHealth;
 
+    public int DungeonExit;
 
 
     List<IItem> items = new List<IItem>();

@@ -6,18 +6,25 @@ public class PlayerSpawnPoint : MonoBehaviour
 
     [SerializeField]
     private Transform spawnPos;
+
+    [SerializeField]
+    private int DungeonExit;
     private void Start()
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        if(player)
+        PlayerVincent playerFound = GameObject.FindWithTag("Player").GetComponent<PlayerVincent>();
+        if (playerFound)
         {
-            player.transform.position = spawnPos.position;
-            player.transform.rotation = Quaternion.Euler(0, 0, 0);
-            CharacterController playerController = player.GetComponent<CharacterController>();
-            PlayerMove playerMove = player.GetComponent<PlayerMove>();
-            playerController.enabled = true;
-            playerMove.enabled = true;
-
+            if (playerFound.DungeonExit == DungeonExit)
+            {
+                playerFound.DungeonExit = 0;
+                playerFound.gameObject.transform.position = spawnPos.position;
+                playerFound.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                CharacterController playerController = playerFound.gameObject.GetComponent<CharacterController>();
+                PlayerMove playerMove = playerFound.gameObject.GetComponent<PlayerMove>();
+                playerController.enabled = true;
+                playerMove.enabled = true;
+            }
+            else return;
         }
     }
 
