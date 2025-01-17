@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae66e39120b167e48bb74bfe2e60b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 0
+  looking: 0
 --- !u!136 &5767126612006169856
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -100,6 +102,7 @@ GameObject:
   - component: {fileID: 8587527864521416421}
   - component: {fileID: 788826890056625818}
   - component: {fileID: 1482578345872342823}
+  - component: {fileID: 2632121252281399488}
   m_Layer: 6
   m_Name: Snake
   m_TagString: Untagged
@@ -252,3 +255,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 200
+--- !u!136 &2632121252281399488
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884313666642323894}
+  m_Material: {fileID: 13400000, guid: 642adaf73b899b143be42276b6bfacc7, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.22
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
