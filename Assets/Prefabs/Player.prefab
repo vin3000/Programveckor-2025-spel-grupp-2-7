@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3a457fd4681bd45a33b2828b3cf2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 100
+  interactRange: 150
   DungeonExit: 0
 --- !u!114 &4299951971166079117
 MonoBehaviour:
