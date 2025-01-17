@@ -15,6 +15,13 @@ public class PlayerVincent : MonoBehaviour
 
     int selectedItem;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+
+
     private void Start()
     { 
         TryGetComponent<PlayerHealth>(out playerHealth);
