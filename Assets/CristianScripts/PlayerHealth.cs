@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public gameOverScript gameOverScript;
 
     [SerializeField] private AudioClip potionSoundEffect;
+    [SerializeField] private TextMeshProUGUI healthText;
     void Start()
     {
         health = maxHealth;
@@ -23,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthText.text = "Health: " + health;
         if (health > maxHealth)
         {
             health = maxHealth;

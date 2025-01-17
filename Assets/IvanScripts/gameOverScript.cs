@@ -48,6 +48,7 @@ public class gameOverScript : MonoBehaviour
     {
         GameObject player = playerHealth.gameObject;
         SceneManager.MoveGameObjectToScene(player, SceneManager.GetActiveScene());
+        SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetActiveScene());
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
 
