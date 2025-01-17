@@ -991,6 +991,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1482578345872342823, guid: 25f1d89d83acdfb49b84b9c7826d0bf8, type: 3}
+      propertyPath: Health
+      value: 450
+      objectReference: {fileID: 0}
     - target: {fileID: 8884313666642323894, guid: 25f1d89d83acdfb49b84b9c7826d0bf8, type: 3}
       propertyPath: m_Name
       value: Snake (2)
@@ -5340,6 +5344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 1857946231413899360, guid: f5931a3ec2a2f6740ba389c5aa7d7cd2, type: 3}
+      propertyPath: Health
+      value: 600
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8884,6 +8892,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1482578345872342823, guid: 25f1d89d83acdfb49b84b9c7826d0bf8, type: 3}
+      propertyPath: Health
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 8884313666642323894, guid: 25f1d89d83acdfb49b84b9c7826d0bf8, type: 3}
       propertyPath: m_Name
       value: Snake
@@ -9196,6 +9208,10 @@ PrefabInstance:
     - target: {fileID: 765012473460464488, guid: f5931a3ec2a2f6740ba389c5aa7d7cd2, type: 3}
       propertyPath: m_Name
       value: Goblin (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857946231413899360, guid: f5931a3ec2a2f6740ba389c5aa7d7cd2, type: 3}
+      propertyPath: Health
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 7504026915995778649, guid: f5931a3ec2a2f6740ba389c5aa7d7cd2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -10201,6 +10217,10 @@ PrefabInstance:
     - target: {fileID: 912488713902415843, guid: 25f1d89d83acdfb49b84b9c7826d0bf8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482578345872342823, guid: 25f1d89d83acdfb49b84b9c7826d0bf8, type: 3}
+      propertyPath: Health
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 8884313666642323894, guid: 25f1d89d83acdfb49b84b9c7826d0bf8, type: 3}
       propertyPath: m_Name
@@ -16246,6 +16266,10 @@ PrefabInstance:
     - target: {fileID: 765012473460464488, guid: f5931a3ec2a2f6740ba389c5aa7d7cd2, type: 3}
       propertyPath: m_Name
       value: Goblin (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857946231413899360, guid: f5931a3ec2a2f6740ba389c5aa7d7cd2, type: 3}
+      propertyPath: Health
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 7504026915995778649, guid: f5931a3ec2a2f6740ba389c5aa7d7cd2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
