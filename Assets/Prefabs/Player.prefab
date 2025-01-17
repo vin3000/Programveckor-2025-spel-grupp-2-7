@@ -363,4 +363,4 @@ MonoBehaviour:
   potionEquiped: 0
   nrOfPotions: 0
   gameOverScript: {fileID: 0}
-  potionSoundEffect: {fileID: 0}
+  potionSoundEffect: {fileID: 8300000, guid: 660ea0fdc0571374d9c179ac0e410d30, type: 3}
