@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 34554768}
   - component: {fileID: 34554767}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CrossHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
