@@ -9358,6 +9358,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 476939455261021338, guid: f322f1aa08b8c3d44afbace1d64dff2f, type: 3}
+      propertyPath: swordSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 9028db5a16402954eb3d1128daa333b3, type: 3}
     - target: {fileID: 494156426031607797, guid: f322f1aa08b8c3d44afbace1d64dff2f, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -9416,15 +9420,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317124857490587817, guid: f322f1aa08b8c3d44afbace1d64dff2f, type: 3}
       propertyPath: m_Name
-      value: sword
+      value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 2317124857490587817, guid: f322f1aa08b8c3d44afbace1d64dff2f, type: 3}
       propertyPath: m_Layer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2317124857490587817, guid: f322f1aa08b8c3d44afbace1d64dff2f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5108359401268834475, guid: f322f1aa08b8c3d44afbace1d64dff2f, type: 3}
       propertyPath: m_Layer
@@ -16537,6 +16537,7 @@ MonoBehaviour:
   potionEquiped: 0
   nrOfPotions: 0
   gameOverScript: {fileID: 0}
+  potionSoundEffect: {fileID: 0}
 --- !u!143 &1808323593
 CharacterController:
   m_ObjectHideFlags: 0
