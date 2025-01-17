@@ -11,7 +11,7 @@ public class DestroyWhenDone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponentInChildren<SpiderShockWave>().GetComponent<Transform>().localScale.x>45)
+        if (GetComponentInChildren<SpiderShockWave>().GetComponent<Transform>().localScale.x>100)
         {
             Destroy(gameObject);
         }
