@@ -13,7 +13,7 @@ public class DungeonTeleporter : MonoBehaviour
     {
     }
 
-    IEnumerator LoadYourAsyncScene()
+  /*  IEnumerator LoadYourAsyncScene()
     {
         Scene currentScene = SceneManager.GetActiveScene();
 
@@ -24,11 +24,14 @@ public class DungeonTeleporter : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.MoveGameObjectToScene(playerObject, SceneManager.GetSceneByName(m_Scene));
-
         SceneManager.UnloadSceneAsync(currentScene);
     }
+*/ //ska testa dontdestroyonload istället
 
+    private void LoadDungeonScene()
+    {
+        SceneManager.LoadScene(m_Scene);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject == playerObject)
@@ -37,7 +40,8 @@ public class DungeonTeleporter : MonoBehaviour
             PlayerMove playerMove = other.gameObject.GetComponent<PlayerMove>();
             playerController.enabled = false;
             playerMove.enabled = false;
-            StartCoroutine(LoadYourAsyncScene());
+            //StartCoroutine(LoadYourAsyncScene());
+            LoadDungeonScene();
         }
             
     }
