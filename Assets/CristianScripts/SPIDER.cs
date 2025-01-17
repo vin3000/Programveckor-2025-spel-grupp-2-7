@@ -70,6 +70,6 @@ public class SPIDER : MonoBehaviour
     }
     private void OnDestroy()
     {
-        SceneManager.LoadScene("MainMenu");
+        //SceneManager.LoadScene("MainMenu");
     }
 }
