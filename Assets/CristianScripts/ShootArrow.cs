@@ -5,6 +5,7 @@ public class ShootArrow : MonoBehaviour
     float shootTimer;
     public GameObject arrowPrefab;
     public float Force;
+    public float shoottime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +19,8 @@ public class ShootArrow : MonoBehaviour
         if (shootTimer <= 0)
         {
             Shoot();
-            shootTimer = 2;
+            shootTimer = shoottime;
+            
         }
     }
     void Shoot()
