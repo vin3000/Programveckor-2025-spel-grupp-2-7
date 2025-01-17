@@ -38,7 +38,11 @@ public class PlayerVincent : MonoBehaviour
                         pickupCollider.enabled = false;
                         item.PickUp();
                         //Debug.Log(items.Count);
-                        items.Add(item);
+                        if (item.gameObject.GetComponent<Torch>() == null)
+                        {
+                            items.Add(item);
+                        }
+                        
                     }
                     else
                     {

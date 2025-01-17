@@ -28,7 +28,7 @@ public class PlayerMove : MonoBehaviour
     public Vector3 damageVelocity;
     bool isGrounded;
 
-
+    
     private void Start()
     {
         standYScale = transform.localScale.y;
