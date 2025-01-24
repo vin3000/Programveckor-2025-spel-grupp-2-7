@@ -12483,6 +12483,10 @@ PrefabInstance:
       value: '"Spider"'
       objectReference: {fileID: 0}
     - target: {fileID: 6086278673183676811, guid: cf066969d5821bc4298fbb540bc0f27c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086278673183676811, guid: cf066969d5821bc4298fbb540bc0f27c, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -12502,6 +12506,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 704758462}
+    - target: {fileID: 9056872467254398532, guid: cf066969d5821bc4298fbb540bc0f27c, type: 3}
+      propertyPath: Health
+      value: 2500
+      objectReference: {fileID: 0}
     - target: {fileID: 9185949609730039384, guid: cf066969d5821bc4298fbb540bc0f27c, type: 3}
       propertyPath: Player
       value: 
