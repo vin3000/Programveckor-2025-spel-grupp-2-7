@@ -39,9 +39,14 @@ public class PlayerVincent : MonoBehaviour
                 //Debug.Log(hit.transform.gameObject.name);
                 if (hit.transform.gameObject.TryGetComponent<IItem>(out IItem item))
                 {
+                    //Skicka ut en raycast och försöker ta upp det den träffar.
                     if (!(item.gameObject.GetComponent<potionPickup>() != null&&playerHealth.nrOfPotions>0))
                     {
                         Collider pickupCollider = hit.transform.gameObject.GetComponent<Collider>();
+                        if(pickupCollider == null)
+                        {
+                            pickupCollider = hit.transform.parent.gameObject.GetComponent<Collider>();
+                        }
                         pickupCollider.enabled = false;
                         item.PickUp();
                         //Debug.Log(items.Count);

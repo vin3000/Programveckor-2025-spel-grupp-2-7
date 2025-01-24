@@ -11,6 +11,7 @@ public class Sword : MonoBehaviour,IItem
     Animation swordAnimation;
     public GameObject bloodEffect;
     [SerializeField] private AudioClip swordSoundEffect;
+    [SerializeField] private BoxCollider itemCollider;
 
     void Start()
     {

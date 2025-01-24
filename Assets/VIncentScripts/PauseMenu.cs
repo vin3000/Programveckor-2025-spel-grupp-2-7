@@ -53,6 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
+        //Sätter timescale till noll, låser musen och öppnar paus menyn
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
