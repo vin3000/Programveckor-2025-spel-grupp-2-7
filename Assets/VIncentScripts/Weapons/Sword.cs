@@ -41,7 +41,15 @@ public class Sword : MonoBehaviour,IItem
     {
         if(hit.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy)&&pickedUp==true)
         {
-            enemy.Damage(250);
+            if (hit.GetComponent<SPIDER>() != null) 
+            {
+                enemy.Damage(100);
+            }
+            else 
+            {
+                enemy.Damage(250);
+            }
+            
             Instantiate(bloodEffect, hit.transform.position, Quaternion.identity);
         }
     }
