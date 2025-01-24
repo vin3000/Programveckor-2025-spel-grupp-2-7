@@ -568,7 +568,7 @@ MonoBehaviour:
     m_Bits: 8
   spiderMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   damageVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &7559390982932637482
 MonoBehaviour:
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3a457fd4681bd45a33b2828b3cf2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 150
+  interactRange: 200
   DungeonExit: 0
 --- !u!114 &4299951971166079117
 MonoBehaviour:
