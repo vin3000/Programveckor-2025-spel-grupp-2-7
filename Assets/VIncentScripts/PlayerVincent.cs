@@ -10,7 +10,6 @@ public class PlayerVincent : MonoBehaviour
 
     public int DungeonExit;
 
-
     List<IItem> items = new List<IItem>();
 
     int selectedItem;
@@ -23,7 +22,7 @@ public class PlayerVincent : MonoBehaviour
 
 
     private void Start()
-    { 
+    {
         TryGetComponent<PlayerHealth>(out playerHealth);
     }
 
@@ -36,9 +35,11 @@ public class PlayerVincent : MonoBehaviour
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
             {
                 
+                
                 //Debug.Log(hit.transform.gameObject.name);
                 if (hit.transform.gameObject.TryGetComponent<IItem>(out IItem item))
                 {
+                    print(item.gameObject.name);
                     //Skicka ut en raycast och försöker ta upp det den träffar.
                     if (!(item.gameObject.GetComponent<potionPickup>() != null&&playerHealth.nrOfPotions>0))
                     {
