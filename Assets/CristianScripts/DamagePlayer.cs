@@ -19,9 +19,12 @@ public class DamagePlayer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+
         
         if (other.tag == "Player"&&other.gameObject.GetComponent<PlayerHealth>().invincibilityTime<=0)
         {
+            other.GetComponent<PlayerHealth>().shakeTimer=0.4f;
+            
             other.gameObject.GetComponent<PlayerHealth>().health -= Damage;
             other.gameObject.GetComponent<PlayerHealth>().invincibilityTime = 1;
             if (Directional == true)

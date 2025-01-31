@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     public bool potionEquiped;
     public int nrOfPotions;
 
+    public float shakeTimer;
+
     public gameOverScript gameOverScript;
 
     [SerializeField] private AudioClip potionSoundEffect;
@@ -25,6 +27,15 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (shakeTimer > 0)
+        {
+            Camera.main.transform.localPosition = new Vector3(0, 0.64f, -0.3f) +Random.insideUnitSphere * 0.5f;
+            shakeTimer -= Time.fixedDeltaTime;
+        }
+        else
+        {
+            Camera.main.transform.localPosition = new Vector3(0, 0.64f, -0.3f);
+        }
         healthText.text = "Health: " + health;
         if (health > maxHealth)
         {
