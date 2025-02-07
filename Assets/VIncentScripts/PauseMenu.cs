@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                if (Cutscene.playingCutscene) return;
                 Pause();
             }
         }
