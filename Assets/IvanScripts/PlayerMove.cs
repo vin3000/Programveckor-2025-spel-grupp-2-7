@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -34,6 +36,7 @@ public class PlayerMove : MonoBehaviour
         standYScale = transform.localScale.y;
         canStand = true;
     }
+    
 
     // Update is called once per frame
     void Update()
