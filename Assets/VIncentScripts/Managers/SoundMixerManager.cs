@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SoundMixerManager : MonoBehaviour
@@ -9,6 +10,14 @@ public class SoundMixerManager : MonoBehaviour
     [SerializeField] private Slider masterVolumeSlider;
     [SerializeField] private Slider soundFXSlider;
     [SerializeField] private Slider musicVolumeSlider;
+
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
 
     private void Start()
     {

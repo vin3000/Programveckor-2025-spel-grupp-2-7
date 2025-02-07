@@ -9,6 +9,8 @@ public class gameOverScript : MonoBehaviour
 
     [SerializeField] private Canvas gameOverScreen;
 
+    [SerializeField]
+    private GameObject soundMixerManager, soundFXManager, musicManager;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -46,9 +48,13 @@ public class gameOverScript : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        //Go back to main menu and move the player, pause menu and death handler from DontDestroyOnLoad so they don't get duplicated if you restart the game.
         GameObject player = playerHealth.gameObject;
-        SceneManager.MoveGameObjectToScene(player, SceneManager.GetActiveScene());
-        SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetActiveScene());
+        GameObject[] objectsToRemoveFromDNOD = {player, this.gameObject, soundFXManager, soundMixerManager, musicManager };
+        foreach (GameObject gameObject in objectsToRemoveFromDNOD)
+        {
+            SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+        }
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
 

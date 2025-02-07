@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundFXManager : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class SoundFXManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+        }
+        if(SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            DontDestroyOnLoad(this.gameObject);
         }
     }
 

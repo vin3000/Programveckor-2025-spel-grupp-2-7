@@ -14,11 +14,13 @@ public class Cutscene : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cutsceneText;
     [SerializeField] private Image fadeInImage;
     [SerializeField] private GameObject controlsGuideUI;
+    [SerializeField] private GameObject crosshair;
     public static bool playingCutscene;
     private string tempText;
     private float scrollSpeed = 0.1f; //lower = faster
     private bool isScrolling = false;
     private bool isFading = false;
+    private bool skipped = false;
 
     AudioSource voice;
     private Rigidbody rb;
@@ -42,12 +44,17 @@ public class Cutscene : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
+            if (!cutsceneTextBox.activeSelf) return;
+            skipped = true;
+            StopCoroutine(fadeIn());
+            StopCoroutine(scrollText());
             EnablePlayer();
             TextDisable();
+            CloseControlsGuide();
         }
         if(Input.GetKey(KeyCode.Space))
         {
-            scrollSpeed = 0.05f;
+            scrollSpeed = 0.03f;
         } else
         {
             scrollSpeed = 0.1f;
@@ -66,11 +73,13 @@ public class Cutscene : MonoBehaviour
     public void ShowControlsGuide()
     {
         //FIX SO MOUSE NOT LOCKED!!!!
+        Cursor.lockState = CursorLockMode.None;
         controlsGuideUI.SetActive(true);
     }
 
     public void CloseControlsGuide()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         controlsGuideUI.SetActive(false);
         EnablePlayer();
     }
@@ -79,13 +88,14 @@ public class Cutscene : MonoBehaviour
     {
         if (isScrolling) StopCoroutine(scrollText());
         isScrolling = true;
+
         for (int i = 0; i < tempText.Length; i++)
         {
             cutsceneText.text += tempText.Substring(i, 1);
             yield return new WaitForSeconds(scrollSpeed);
             isScrolling = false;
         }
-        ShowControlsGuide();
+        if(skipped == false) ShowControlsGuide();
         rb.isKinematic = false;
         yield return new WaitForSeconds(5f);
         TextDisable();
@@ -96,8 +106,15 @@ public class Cutscene : MonoBehaviour
     {
         fadeInImage.gameObject.SetActive(true);
         isFading = true;
+
         while(fadeInImage.color.a > 0)
         {
+            if (skipped)
+            {
+                Debug.Log("skip!");
+                fadeInImage.color = new Color(0, 0, 0, 0);
+                yield return null;
+            }
             fadeInImage.color -= new Color(0, 0, 0, 0.05f);
             yield return new WaitForSeconds(scrollSpeed);
         }
@@ -108,6 +125,7 @@ public class Cutscene : MonoBehaviour
 
     private void EnablePlayer()
     {
+        crosshair.SetActive(true);
         playingCutscene = false;
         Player.SetActive(true);
         cutsceneCamera.gameObject.SetActive(false);
