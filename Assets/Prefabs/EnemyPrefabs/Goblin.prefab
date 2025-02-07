@@ -305,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   Directional: 1
-  Force: 400
+  Force: 2000
   destroyOnHit: 0
 --- !u!1 &4470261124233182001
 GameObject:

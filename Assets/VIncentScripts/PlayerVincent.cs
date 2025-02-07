@@ -93,6 +93,11 @@ public class PlayerVincent : MonoBehaviour
             selectedItem = 2;
 
         }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            selectedItem = 3;
+
+        }
         for (int i = 0; i < items.ToArray().Length; i++)
         {
             if (i == selectedItem)

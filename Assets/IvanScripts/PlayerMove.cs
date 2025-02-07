@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -33,6 +35,14 @@ public class PlayerMove : MonoBehaviour
     {
         standYScale = transform.localScale.y;
         canStand = true;
+    }
+    public IEnumerator CreditsWarp() 
+    {
+        print("1");
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("Credits");
+        Destroy(gameObject);
+        
     }
 
     // Update is called once per frame
