@@ -70,6 +70,12 @@ public class SPIDER : MonoBehaviour
     }
     private void OnDestroy()
     {
-        //SceneManager.LoadScene("MainMenu");
+        if (GetComponent<EnemyHealth>().Health <= 0) 
+        {
+            Destroy(Player.gameObject);
+            SceneManager.LoadScene("Credits");
+
+        }
+
     }
 }
