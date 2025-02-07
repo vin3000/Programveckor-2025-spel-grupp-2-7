@@ -15,8 +15,17 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject confirmationPrompt;
 
+    [SerializeField]
+    private GameObject deathScreenHandler;
+
+    [SerializeField]
+    private GameObject player;
 
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -86,9 +95,13 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        GameObject[] objectsToRemoveFromDNOD = {player, this.gameObject, deathScreenHandler};
+        //Go back to main menu and move the player, pause menu and death handler from DontDestroyOnLoad so they don't get duplicated if you restart the game.
         confirmationPrompt.SetActive(false);
-        GameObject player = GameObject.FindWithTag("Player");
-        SceneManager.MoveGameObjectToScene(player, SceneManager.GetActiveScene());
+        foreach (GameObject gameObject in objectsToRemoveFromDNOD)
+        {
+            SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+        }
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }

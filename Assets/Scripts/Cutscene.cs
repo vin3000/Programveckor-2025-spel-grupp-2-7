@@ -14,10 +14,9 @@ public class Cutscene : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cutsceneText;
     [SerializeField] private Image fadeInImage;
     [SerializeField] private GameObject controlsGuideUI;
-    private int fadeInSpeed = 10;
     public static bool playingCutscene;
     private string tempText;
-    private float scrollSpeed = 0.1f;
+    private float scrollSpeed = 0.1f; //lower = faster
     private bool isScrolling = false;
     private bool isFading = false;
 
